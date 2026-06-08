@@ -5,11 +5,11 @@
 
 <img src="docs/assets/hero.png" alt="ADOFAI Trainer — an in-game GUI trainer for A Dance of Fire and Ice with autoplay, hide-HUD, speed, widened judgement, no-fail and unlock-all, opened with Insert" width="100%">
 
-<sub>▶ <a href="docs/assets/promo.mp4">Watch the 30-second promo</a></sub>
+<sub> <a href="docs/assets/promo.mp4">Watch the 30-second promo</a></sub>
 
 # ADOFAI Trainer · 冰与火之舞 修改器
 
-**Press Insert. Get a flawless run. It's the game's own autoplay, just exposed.** 🎬
+**Press Insert. Get a flawless run. It's the game's own autoplay, just exposed.**
 
 An **in-game GUI trainer** for *A Dance of Fire and Ice*, built on BepInEx 5. Frame-perfect autoplay, HUD-free recording, speed control, no-fail, widened judgement, and level unlock — **by toggling the game's own switches, with no memory hacking**.
 
@@ -20,7 +20,7 @@ An **in-game GUI trainer** for *A Dance of Fire and Ice*, built on BepInEx 5. Fr
 [![price](https://img.shields.io/badge/free%20%26%20open%20source-FREE-2ea44f)](https://github.com/Cohenjikan/ADOFAITrainer)
 [![stars](https://img.shields.io/github/stars/Cohenjikan/ADOFAITrainer?style=social)](https://github.com/Cohenjikan/ADOFAITrainer/stargazers)
 
-[Features](#%EF%B8%8F-features) · [Quickstart](#-quickstart-3-steps) · [Usage](#-usage) · [Trade-offs](#%EF%B8%8F-trade-offs--gotchas-read-this) · [Build](#-build-from-source) · [简体中文](README.md)
+[Features](#features) · [Quickstart](#quickstart-3-steps) · [Usage](#usage) · [Trade-offs](#trade-offs--gotchas-read-this) · [Build](#build-from-source) · [简体中文](README.md)
 
 </div>
 
@@ -32,7 +32,7 @@ An **in-game GUI trainer** for *A Dance of Fire and Ice*, built on BepInEx 5. Fr
 
 ---
 
-## ✨ Why this exists
+## Why this exists
 
 The hardest part of recording a flawless ADOFAI clear is **manual precision** — the game is "tap on the beat," and a zero-mistake run by hand is nearly impossible.
 
@@ -51,33 +51,33 @@ It's fundamentally different from a memory-scanning cheat:
 
 ---
 
-## 🎛️ Features
+## Features
 
 Press **Insert** to open the overlay. Three tabs: **Normal** / **Developer** / **About**.
 
 ### Normal
 
-#### 🎬 Autoplay — frame-perfect, no watermark
+#### Autoplay — frame-perfect, no watermark
 The engine auto-plays every tile perfectly; on screen it looks identical to a real run, with **no autoplay watermark in the main game**. Toggle any time inside a level.
 > How: `RDC.auto` is set only while in a level — it's the engine's native autoplay flag (only the editor's Otto mascot shows a watermark, which is why it's gated to in-level).
 
 <img src="docs/assets/feature-1.png" alt="Normal tab: Autoplay and Hide HUD toggles with explanatory captions" width="70%">
 
-#### 🎥 Hide HUD (clean recording)
+#### Hide HUD (clean recording)
 Strip the on-screen HUD for clean OBS captures; together with Autoplay this reproduces the game's own dev recording mode.
 > How: sets `RDC.noHud`; the game's dev recording mode is exactly `RDC.auto = true; RDC.noHud = true`.
 
-#### ⏩ Game speed 0.5×–3× (pitch included)
+#### Game speed 0.5×–3× (pitch included)
 Slow-mo practice or speed-up. A continuous slider plus `0.75×` / `1×` / `1.5×` / `2×` quick buttons.
 > How: arms `GCS.speedTrialMode` + `GCS.nextSpeedRun` (read at level Start); "Apply speed & restart level" calls `scrController.instance.Restart(true)` to apply it.
 
 <img src="docs/assets/feature-2.png" alt="Speed section: speed toggle, slider, 0.75x/1x/1.5x/2x quick buttons, and Apply speed and restart level button" width="70%">
 
-#### 🛡️ No-Fail
+#### No-Fail
 The game's built-in practice mode — never fail or get interrupted, live-toggleable inside a level.
 > How: sets `GCS.useNoFail` and also pushes `scrController.instance.noFail` onto the live level.
 
-#### 🎯 Widen judgement (incl. Perfect window)
+#### Widen judgement (incl. Perfect window)
 The project's **only Harmony patch**. Manual play scores Perfect even when slightly off-beat — multiplier `1.0–5.0`, widening Perfect/Pure too.
 > How: `JudgeWindowPatch` is a Postfix on `scrMisc.GetAdjustedAngleBoundaryInDeg` that multiplies `__result` by `max(1.0, judgeMult)`, widening Counted / Perfect / Pure together. With Autoplay on you're already perfect, so this is purely for manual practice.
 
@@ -87,14 +87,14 @@ The project's **only Harmony patch**. Manual play scores Perfect even when sligh
 
 | Feature | Notes |
 |---|---|
-| 🔓 **Unlock all levels** (temporary, no save write) + **Go to level select** | Together = jump to any level; turning it off restores everything, leaving the save untouched (`RDC.forceUnlockAllLevels`) |
-| 💾 **Permanent unlock all** | Writes the game's own `Persistence.unlockAllLevels` and saves; **reversible at any time, deletes no existing progress** |
-| 🎞️ **Skip cutscenes** / **Show FPS** / **Static planet colors** | Steadier for recording (`RDC.skipCutscenes` / `GCS.showFPS` / `GCS.staticPlanetColors`) |
-| 📂 **Open save folder** | Opens Explorer at `Persistence.DataPath` |
+| **Unlock all levels** (temporary, no save write) + **Go to level select** | Together = jump to any level; turning it off restores everything, leaving the save untouched (`RDC.forceUnlockAllLevels`) |
+| **Permanent unlock all** | Writes the game's own `Persistence.unlockAllLevels` and saves; **reversible at any time, deletes no existing progress** |
+| **Skip cutscenes** / **Show FPS** / **Static planet colors** | Steadier for recording (`RDC.skipCutscenes` / `GCS.showFPS` / `GCS.staticPlanetColors`) |
+| **Open save folder** | Opens Explorer at `Persistence.DataPath` |
 
 ---
 
-## 🚀 Quickstart (3 steps)
+## Quickstart (3 steps)
 
 > For the **Steam release** (Unity 6 / x64 / Mono). BepInEx 5 is required first.
 
@@ -118,11 +118,11 @@ After launching, open `<game>\BepInEx\LogOutput.log` and look for a line contain
 ADOFAI Trainer (冰与火之舞修改器) v1.3.0 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
 ```
 
-Enter any level and press **Insert** to open the menu. 🎉
+Enter any level and press **Insert** to open the menu.
 
 ---
 
-## 🎮 Usage
+## Usage
 
 1. In any level, press **Insert** to open/close the menu.
 2. **Record a flawless run:** enable **Autoplay** on the *Normal* tab (optionally **Hide HUD**) → enter a level → capture with OBS, etc.
@@ -132,7 +132,7 @@ Enter any level and press **Insert** to open the menu. 🎉
 
 ---
 
-## ⚠️ Trade-offs & gotchas (read this)
+## Trade-offs & gotchas (read this)
 
 - **Speed does NOT preserve pitch.** The engine scales `song.pitch` directly with no time-stretch, so faster/slower also raises/lowers pitch. This is a known trade-off.
 - **Speed only applies at level start/restart.** The engine can't change speed mid-song, so always hit "Apply speed & restart level" after changing it.
@@ -144,7 +144,7 @@ Enter any level and press **Insert** to open the menu. 🎉
 
 ---
 
-## 🔨 Build from source
+## Build from source
 
 Requires the .NET SDK (targets `netstandard2.1`) and a copy of the game with **BepInEx already installed** (for the reference DLLs, including `RDTools.dll`). This repo ships **no game assets**.
 
@@ -158,7 +158,7 @@ Output: `src/bin/Release/ADOFAITrainer.dll`.
 
 ---
 
-## ♻️ Uninstall
+## Uninstall
 
 - **Remove only the trainer:** delete `<game>\BepInEx\plugins\ADOFAITrainer.dll` (or run [`tools/uninstall.bat`](tools/uninstall.bat)).
 - **Remove BepInEx too / restore vanilla:** delete `winhttp.dll` from the game root (fastest way to disable BepInEx), or delete `winhttp.dll` + the `BepInEx/` folder + `doorstop_config.ini`.
@@ -168,7 +168,7 @@ Output: `src/bin/Release/ADOFAITrainer.dll`.
 
 ---
 
-## 🧩 Compatibility
+## Compatibility
 
 | Item | Value |
 |---|---|
@@ -181,7 +181,7 @@ Output: `src/bin/Release/ADOFAITrainer.dll`.
 
 ---
 
-## 📜 Disclaimer
+## Disclaimer
 
 - **Unofficial.** This is an unofficial, fan-made third-party tool, **not affiliated with, authorized, or endorsed by** the game's developer [7th Beat Games](https://7thbeat.com/). *A Dance of Fire and Ice* and all related names, trademarks, art, and music are the property of 7th Beat Games.
 - **No game content.** This repository contains **only the author's own plugin code** — it includes and distributes no game source, DLLs, audio, images, or other assets. At runtime it only calls the game's **own existing** public functions via BepInEx / HarmonyX; no memory scanning.
@@ -193,9 +193,9 @@ Output: `src/bin/Release/ADOFAITrainer.dll`.
 
 ---
 
-## 🙏 Credits
+## Credits
 
 - Mod frameworks: [BepInEx](https://github.com/BepInEx/BepInEx) / [HarmonyX](https://github.com/BepInEx/HarmonyX).
 - Shares its approach with the sibling project *Rhythm Doctor Trainer* (also by 7th Beat Games).
 
-Licensed under [MIT](LICENSE). Made with ❤️ by Cohenjikan.
+Licensed under [MIT](LICENSE). Made by Cohenjikan.

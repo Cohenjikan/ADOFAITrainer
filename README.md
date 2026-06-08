@@ -5,11 +5,11 @@
 
 <img src="docs/assets/hero.png" alt="冰与火之舞修改器 ADOFAI Trainer — 按 Insert 呼出的游戏内图形修改器，集成 Autoplay、隐藏 HUD、变速、放宽判定、无敌与解锁全部关卡" width="100%">
 
-<sub>▶ <a href="docs/assets/promo.mp4">观看 30 秒宣传片</a></sub>
+<sub> <a href="docs/assets/promo.mp4">观看 30 秒宣传片</a></sub>
 
 # 冰与火之舞修改器 · ADOFAI Trainer
 
-**按下 Insert，得到一次满分通关——这就是游戏自带的 Autoplay，只是被亮了出来。** 🎬
+**按下 Insert，得到一次满分通关——这就是游戏自带的 Autoplay，只是被亮了出来。**
 
 一个《冰与火之舞》(A Dance of Fire and Ice) 的 **游戏内图形修改器**，基于 BepInEx 5。集成帧级满分 Autoplay、无 HUD 干净录制、变速、无敌、放宽判定与解锁全部关卡——**只翻动游戏自己已有的开关，不做内存扫描**。
 
@@ -20,7 +20,7 @@
 [![price](https://img.shields.io/badge/%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90-FREE-2ea44f)](https://github.com/Cohenjikan/ADOFAITrainer)
 [![stars](https://img.shields.io/github/stars/Cohenjikan/ADOFAITrainer?style=social)](https://github.com/Cohenjikan/ADOFAITrainer/stargazers)
 
-[功能](#%EF%B8%8F-功能) · [快速上手](#-快速上手三步) · [使用](#-使用) · [取舍与注意](#%EF%B8%8F-取舍与注意必读) · [从源码构建](#-从源码构建) · [English](README.en.md)
+[功能](#功能) · [快速上手](#快速上手三步) · [使用](#使用) · [取舍与注意](#取舍与注意必读) · [从源码构建](#从源码构建) · [English](README.en.md)
 
 </div>
 
@@ -32,7 +32,7 @@
 
 ---
 
-## ✨ 为什么用它
+## 为什么用它
 
 录制《冰与火之舞》完美通关的最大障碍，是**手速对点**——游戏核心是「踩着节拍点击」，全程零失误几乎不可能靠手打做到。
 
@@ -51,33 +51,33 @@
 
 ---
 
-## 🎛️ 功能
+## 功能
 
 按 **Insert** 呼出浮层菜单，三个分页：**普通** / **开发者** / **关于**。
 
 ### 普通玩家
 
-#### 🎬 Autoplay — 全程满分自动演奏（主游戏无水印）
+#### Autoplay — 全程满分自动演奏（主游戏无水印）
 引擎按谱面帧级满分自动演奏，画面与真人手打无异；**主游戏里没有 autoplay 水印**，可在关卡内随时开关。
 > 原理：仅在关卡内把 `RDC.auto` 设为开关状态——这正是引擎自带 autoplay 的原生标志（编辑器里的 Otto 吉祥物才会显示水印，所以只在关卡内启用）。
 
 <img src="docs/assets/feature-1.png" alt="普通页：Autoplay 与隐藏 HUD 开关，下方为说明文字" width="70%">
 
-#### 🎥 隐藏 HUD（干净录制）
+#### 隐藏 HUD（干净录制）
 去掉屏幕上的 HUD，OBS 录出来干干净净；配合 Autoplay 就复刻了游戏自带的「开发者录制模式」。
 > 原理：设置 `RDC.noHud`；游戏的 dev 录制模式正是 `RDC.auto = true; RDC.noHud = true`。
 
-#### ⏩ 游戏变速 0.5×–3×（含音高）
+#### 游戏变速 0.5×–3×（含音高）
 慢放练习或加速。滑块连续可调，并有 `0.75×` / `1×` / `1.5×` / `2×` 快捷按钮。
 > 原理：预置 `GCS.speedTrialMode` + `GCS.nextSpeedRun`（在关卡 Start 时读取），点「应用变速并重开本关」调用 `scrController.instance.Restart(true)` 生效。
 
 <img src="docs/assets/feature-2.png" alt="变速分区：变速开关、滑块、0.75x/1x/1.5x/2x 快捷按钮，以及应用变速并重开本关按钮" width="70%">
 
-#### 🛡️ 无敌 No-Fail
+#### 无敌 No-Fail
 即游戏自带的「无判定」练习模式，永不失败、不被打断，关卡内开启立即生效。
 > 原理：设置 `GCS.useNoFail`，并把 `scrController.instance.noFail` 一并推到当前关卡。
 
-#### 🎯 放宽判定（含完美窗口）
+#### 放宽判定（含完美窗口）
 本项目**唯一的 Harmony 补丁**。手打也能轻松全 Perfect——倍数 `1.0–5.0` 可调，连 Perfect/Pure 窗口一起放宽。
 > 原理：`JudgeWindowPatch` 后缀 `scrMisc.GetAdjustedAngleBoundaryInDeg`，把返回值乘以 `max(1.0, judgeMult)`，同时加宽 Counted / Perfect / Pure 三个命中窗口。开 Autoplay 时本就满分，此项专为手动练习。
 
@@ -87,14 +87,14 @@
 
 | 功能 | 说明 |
 |---|---|
-| 🔓 **解锁全部关卡**（临时，不写存档）+ **前往选关** | 二者配合 = 关卡直达；关闭即恢复，不污染存档（`RDC.forceUnlockAllLevels`）|
-| 💾 **永久解锁全部关卡** | 写入游戏自身的 `Persistence.unlockAllLevels` 并保存，**可随时取消，不删任何已有进度** |
-| 🎞️ **跳过过场动画** / **显示 FPS** / **固定星球颜色** | 录制更稳（`RDC.skipCutscenes` / `GCS.showFPS` / `GCS.staticPlanetColors`）|
-| 📂 **打开存档目录** | 在 `Persistence.DataPath` 处打开资源管理器 |
+| **解锁全部关卡**（临时，不写存档）+ **前往选关** | 二者配合 = 关卡直达；关闭即恢复，不污染存档（`RDC.forceUnlockAllLevels`）|
+| **永久解锁全部关卡** | 写入游戏自身的 `Persistence.unlockAllLevels` 并保存，**可随时取消，不删任何已有进度** |
+| **跳过过场动画** / **显示 FPS** / **固定星球颜色** | 录制更稳（`RDC.skipCutscenes` / `GCS.showFPS` / `GCS.staticPlanetColors`）|
+| **打开存档目录** | 在 `Persistence.DataPath` 处打开资源管理器 |
 
 ---
 
-## 🚀 快速上手（三步）
+## 快速上手（三步）
 
 > 适用于 **Steam 正式版**（Unity 6 / x64 / Mono）。需要先装 BepInEx 5。
 
@@ -118,11 +118,11 @@
 ADOFAI Trainer (冰与火之舞修改器) v1.3.0 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
 ```
 
-进入任意关卡，按 **Insert** 呼出菜单。🎉
+进入任意关卡，按 **Insert** 呼出菜单。
 
 ---
 
-## 🎮 使用
+## 使用
 
 1. 进入任意关卡，按 **Insert** 开 / 关菜单。
 2. **录制完美通关**：在「普通」页打开 **Autoplay**（可再开「隐藏 HUD」）→ 进关卡 → 用 OBS 等录屏。
@@ -132,7 +132,7 @@ ADOFAI Trainer (冰与火之舞修改器) v1.3.0 · 免费开源 FREE · github.
 
 ---
 
-## ⚠️ 取舍与注意（必读）
+## 取舍与注意（必读）
 
 - **变速不保留音高**：引擎用 `song.pitch` 直接缩放，没有时间拉伸，所以快 / 慢的同时音调也会升 / 降。这是已知取舍。
 - **变速只在关卡开始 / 重开时生效**：引擎无法中途变速，改完务必点「应用变速并重开本关」。
@@ -144,7 +144,7 @@ ADOFAI Trainer (冰与火之舞修改器) v1.3.0 · 免费开源 FREE · github.
 
 ---
 
-## 🔨 从源码构建
+## 从源码构建
 
 需要 .NET SDK（构建 `netstandard2.1`）、以及一份**已安装 BepInEx 的游戏副本**（用于引用 DLL，包含 `RDTools.dll`）。本仓库**不含任何游戏素材**。
 
@@ -158,7 +158,7 @@ dotnet build src/ADOFAITrainer.csproj -c Release -p:GameDir="你的\A Dance of F
 
 ---
 
-## ♻️ 卸载
+## 卸载
 
 - **只移除修改器**：删除 `游戏目录\BepInEx\plugins\ADOFAITrainer.dll`（或运行 [`tools/uninstall.bat`](tools/uninstall.bat)）。
 - **连 BepInEx 一起移除 / 恢复原版**：删除游戏根目录的 `winhttp.dll`（最快的「禁用 BepInEx」方式），或一并删除 `winhttp.dll` + `BepInEx/` + `doorstop_config.ini`。
@@ -168,7 +168,7 @@ dotnet build src/ADOFAITrainer.csproj -c Release -p:GameDir="你的\A Dance of F
 
 ---
 
-## 🧩 兼容性
+## 兼容性
 
 | 项 | 值 |
 |---|---|
@@ -181,7 +181,7 @@ dotnet build src/ADOFAITrainer.csproj -c Release -p:GameDir="你的\A Dance of F
 
 ---
 
-## 📜 免责声明
+## 免责声明
 
 - **非官方**：本项目是粉丝制作的非官方第三方工具，与游戏开发商 [7th Beat Games](https://7thbeat.com/) **无任何关联**，亦未获其授权或认可。《A Dance of Fire and Ice》及其名称、商标、美术与音乐等素材的一切权利归 7th Beat Games 所有。
 - **不含游戏内容**：本仓库**仅包含作者自行编写的插件代码**，不含也不分发游戏的任何源代码、DLL、音频、图像或其它素材；运行时只通过 BepInEx / HarmonyX 调用游戏**自身已存在**的公开函数，不做内存扫描。
@@ -193,9 +193,9 @@ dotnet build src/ADOFAITrainer.csproj -c Release -p:GameDir="你的\A Dance of F
 
 ---
 
-## 🙏 致谢
+## 致谢
 
 - 模组框架 [BepInEx](https://github.com/BepInEx/BepInEx) / [HarmonyX](https://github.com/BepInEx/HarmonyX)。
 - 与姊妹项目「节奏医生修改器」同源同法（同为 7th Beat Games 出品）。
 
-本项目代码以 [MIT](LICENSE) 许可证开源。Made with ❤️ by Cohenjikan.
+本项目代码以 [MIT](LICENSE) 许可证开源。Made by Cohenjikan.
