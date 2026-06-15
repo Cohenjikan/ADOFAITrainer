@@ -20,7 +20,7 @@
 [![price](https://img.shields.io/badge/%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90-FREE-2ea44f)](https://github.com/Cohenjikan/ADOFAITrainer)
 [![stars](https://img.shields.io/github/stars/Cohenjikan/ADOFAITrainer?style=social)](https://github.com/Cohenjikan/ADOFAITrainer/stargazers)
 
-[功能](#功能) · [快速上手](#快速上手三步) · [使用](#使用) · [取舍与注意](#取舍与注意必读) · [从源码构建](#从源码构建) · [English](README.en.md)
+[安装](#安装) · [功能](#功能) · [使用](#使用) · [取舍与注意](#取舍与注意必读) · [从源码构建](#从源码构建) · [English](README.en.md)
 
 </div>
 
@@ -29,6 +29,29 @@
 
 > [!IMPORTANT]
 > **本工具完全免费、开源，严禁倒卖。** 标题栏、菜单顶部与加载日志均带有本项目地址水印，并内置完整性校验——**删除或篡改该水印 / 项目地址会使修改器直接禁用**（连唯一的 Harmony 补丁也不会加载）。如果你是付费拿到的，说明被人倒卖了，请到 [本仓库](https://github.com/Cohenjikan/ADOFAITrainer) 免费获取。
+
+---
+
+## 安装
+
+### macOS / Linux（原生，无需 BepInEx）
+
+打开「终端」，粘贴运行一行即可（自动装 .NET SDK → 编译 → 织入游戏启动钩子）：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/install.sh | bash
+```
+
+然后正常用 Steam 启动游戏，进任意画面按 **F3** 开 / 关菜单。卸载同样一行：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/uninstall.sh | bash
+```
+> 游戏更新或 Steam「验证文件完整性」后，重跑一次安装命令即可。
+
+### Windows
+
+到本仓库右侧的 **[Releases](https://github.com/Cohenjikan/ADOFAITrainer/releases)** 下载最新的 `ADOFAITrainer.dll`，放进 `<游戏目录>\BepInEx\plugins\`（需先装 BepInEx 5）。进入游戏按 **Insert** 呼出菜单。完整步骤见下方[「Windows 安装详解」](#windows-安装详解bepinex)。
 
 ---
 
@@ -94,7 +117,7 @@
 
 ---
 
-## 快速上手（三步）
+## Windows 安装详解（BepInEx）
 
 > 适用于 **Steam 正式版**（Unity 6 / x64 / Mono）。需要先装 BepInEx 5。
 
@@ -115,7 +138,7 @@
 启动游戏后打开 `游戏目录\BepInEx\LogOutput.log`，看到包含这串文字的一行即成功（前缀与结尾会更长）：
 
 ```text
-ADOFAI Trainer (冰与火之舞修改器) v1.3.0 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
+ADOFAI Trainer (冰与火之舞修改器) v1.41 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
 ```
 
 进入任意关卡，按 **Insert** 呼出菜单。

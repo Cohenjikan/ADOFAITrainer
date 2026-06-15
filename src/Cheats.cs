@@ -1,8 +1,9 @@
 namespace ADOFAITrainer
 {
-    // Shared runtime state. Read each frame by Plugin.ApplyState() (and by the Harmony patch
-    // in Patches.cs) and drawn by OnGUI(). Every field maps to ONE switch the game already
-    // exposes — no memory offsets, so it survives game updates.
+    // Shared runtime state. Read each frame by the trainer's ApplyState (Plugin on Windows /
+    // Trainer on macOS) and by the Harmony patch in Patches.cs, and drawn by OnGUI(). Every
+    // field maps to ONE switch the game already exposes — no memory offsets, so it survives
+    // game updates. Compiled into BOTH builds (the mac project links this file from src/).
     internal static class Cheats
     {
         // ---- 普通玩家 ----

@@ -47,7 +47,7 @@ class Program
 
         // 3) locate Loader.Init in the (just-copied) trainer assembly
         var trainerAsm = AssemblyDefinition.ReadAssembly(Path.Combine(managed, "ADOFAITrainerMac.dll"));
-        var loader = trainerAsm.MainModule.Types.FirstOrDefault(t => t.FullName == "ADOFAITrainerMac.Loader");
+        var loader = trainerAsm.MainModule.Types.FirstOrDefault(t => t.FullName == "ADOFAITrainer.Loader");
         var init = loader?.Methods.FirstOrDefault(m => m.Name == "Init" && m.IsStatic && m.Parameters.Count == 0);
         if (init == null) { Console.Error.WriteLine("ADOFAITrainerMac.Loader.Init() not found"); return 1; }
 

@@ -3,7 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using UnityEngine;
 
-namespace ADOFAITrainerMac
+namespace ADOFAITrainer
 {
     // In-game trainer for A Dance of Fire and Ice (冰与火之舞), macOS/Linux-native. F3 opens an
     // IMGUI overlay (普通 / 开发者 / 关于). Same philosophy as the Rhythm Doctor trainer (both
@@ -21,7 +21,7 @@ namespace ADOFAITrainerMac
     {
         public const string Guid = "com.cohen.adofaitrainer";
         public const string Name = "ADOFAI Trainer (冰与火之舞修改器) · macOS/Linux";
-        public const string Version = "1.4.0-mac";
+        public const string Version = "1.41";
         public const string Repo = "github.com/Cohenjikan/ADOFAITrainer";
         public const string MacRepo = "github.com/MrTangLuyao/ADOFAITrainerMac";
         // Watermark, shown right after the version everywhere (title / top of menu / load log /

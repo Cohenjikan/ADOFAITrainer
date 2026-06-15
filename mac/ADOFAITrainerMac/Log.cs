@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ADOFAITrainerMac
+namespace ADOFAITrainer
 {
     // Minimal logger replacing BepInEx's ManualLogSource. Output lands in the Unity Player.log:
     //   macOS: ~/Library/Logs/7th Beat Games/A Dance of Fire and Ice/Player.log

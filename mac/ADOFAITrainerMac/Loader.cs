@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ADOFAITrainerMac
+namespace ADOFAITrainer
 {
     // Entry point. A single call to Loader.Init() is woven into the game's ADOStartup.Startup
     // by the Cecil patcher (../Patcher). It spawns a persistent host GameObject carrying the

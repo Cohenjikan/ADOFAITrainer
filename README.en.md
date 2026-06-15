@@ -32,6 +32,29 @@ An **in-game GUI trainer** for *A Dance of Fire and Ice*, built on BepInEx 5. Fr
 
 ---
 
+## Install
+
+### macOS / Linux (native, no BepInEx)
+
+Paste one line into a terminal (auto-installs the .NET SDK → builds → weaves the loader into the game's startup):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/install.sh | bash
+```
+
+Launch the game via Steam and press **F3** anywhere to toggle the menu. Uninstall (one line too):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/uninstall.sh | bash
+```
+> A game update or Steam "Verify integrity of game files" restores the DLL — just re-run the install command.
+
+### Windows
+
+Download the latest `ADOFAITrainer.dll` from the repo's **[Releases](https://github.com/Cohenjikan/ADOFAITrainer/releases)** (right sidebar) and drop it into `<game>\BepInEx\plugins\` (BepInEx 5 required). Press **Insert** in-game. Full steps below in [Windows install (detailed)](#windows-install-bepinex-detailed).
+
+---
+
 ## Why this exists
 
 The hardest part of recording a flawless ADOFAI clear is **manual precision** — the game is "tap on the beat," and a zero-mistake run by hand is nearly impossible.
@@ -94,7 +117,7 @@ The project's **only Harmony patch**. Manual play scores Perfect even when sligh
 
 ---
 
-## Quickstart (3 steps)
+## Windows install (BepInEx, detailed)
 
 > For the **Steam release** (Unity 6 / x64 / Mono). BepInEx 5 is required first.
 
@@ -115,7 +138,7 @@ The project's **only Harmony patch**. Manual play scores Perfect even when sligh
 After launching, open `<game>\BepInEx\LogOutput.log` and look for a line containing (the full line has a longer prefix and a trailing `Switches: ...` list):
 
 ```text
-ADOFAI Trainer (冰与火之舞修改器) v1.3.0 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
+ADOFAI Trainer (冰与火之舞修改器) v1.41 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
 ```
 
 Enter any level and press **Insert** to open the menu.

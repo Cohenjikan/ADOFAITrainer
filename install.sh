@@ -2,7 +2,7 @@
 # ADOFAI Trainer (冰与火之舞修改器) · macOS + Linux 一键安装（原生，无需 BepInEx / Rosetta）
 #
 # 懒人一键（在「终端」粘贴运行）：
-#   curl -fsSL https://raw.githubusercontent.com/MrTangLuyao/ADOFAITrainerMac/refs/heads/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/install.sh | bash
 #
 # 脚本会自动：装 .NET SDK（若无）→ 拉取源码 → 编译 → 备份游戏文件 → 织入加载器。
 # 游戏更新或 Steam「验证文件完整性」后重跑本命令即可。
@@ -12,7 +12,7 @@
 # 日志路径、缺包提示）抽成变量，主逻辑两个平台共用。
 set -euo pipefail
 
-REPO_GIT="https://github.com/MrTangLuyao/ADOFAITrainerMac.git"
+REPO_GIT="https://github.com/Cohenjikan/ADOFAITrainer.git"
 export DOTNET_ROOT="${DOTNET_ROOT:-$HOME/.dotnet}"
 export PATH="$DOTNET_ROOT:$PATH"
 
@@ -149,7 +149,7 @@ cat <<EOF
 
 ==> 完成！正常通过 Steam 启动游戏，进任意关卡按 F3 开/关菜单。
     验证：  grep ADOFAITrainerMac "$PLAYER_LOG"
-            期望：  ... v1.4.0-mac loaded · ... · Menu key = F3 · patches ok=1 fail=0
-    卸载：  curl -fsSL https://raw.githubusercontent.com/MrTangLuyao/ADOFAITrainerMac/refs/heads/main/uninstall.sh | bash
+            期望：  ... v1.41 loaded · ... · Menu key = F3 · patches ok=1 fail=0
+    卸载：  curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/uninstall.sh | bash
     NOTE: 游戏更新或 Steam「验证文件完整性」会还原补丁 —— 重跑安装命令即可。
 EOF

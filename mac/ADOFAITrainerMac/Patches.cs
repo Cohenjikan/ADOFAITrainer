@@ -1,6 +1,6 @@
 using HarmonyLib;
 
-namespace ADOFAITrainerMac
+namespace ADOFAITrainer
 {
     // Widen the hit-judgement window. scrMisc.GetAdjustedAngleBoundaryInDeg returns the
     // Counted / Perfect / Pure angle boundaries used by GetHitMargin to classify a tap

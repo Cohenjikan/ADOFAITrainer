@@ -10,7 +10,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>ADOFAITrainerMac</AssemblyName>
     <Product>ADOFAI Trainer (冰与火之舞修改器) · macOS/Linux</Product>
-    <Version>1.4.0</Version>
+    <Version>1.41</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
@@ -23,6 +23,11 @@
   <ItemGroup>
     <!-- Harmony (pardeike Lib.Harmony): single self-contained 0Harmony.dll, shipped into Managed/ at install time -->
     <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Shared with the Windows build — single source of truth (see ../../src). -->
+    <Compile Include="../../src/Cheats.cs" Link="Cheats.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -20,7 +20,7 @@ namespace ADOFAITrainer
     {
         public const string Guid = "com.cohen.adofaitrainer";
         public const string Name = "ADOFAI Trainer (冰与火之舞修改器)";
-        public const string Version = "1.3.0";
+        public const string Version = "1.41";
         public const string Repo = "github.com/Cohenjikan/ADOFAITrainer";
         // Watermark, shown right after the version everywhere (title / top of menu / load log /
         // About). It doubles as the integrity key — removing it disables the trainer.
