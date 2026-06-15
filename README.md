@@ -51,7 +51,18 @@ curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads
 
 ### Windows
 
-到本仓库右侧的 **[Releases](https://github.com/Cohenjikan/ADOFAITrainer/releases)** 下载最新的 `ADOFAITrainer.dll`，放进 `<游戏目录>\BepInEx\plugins\`（需先装 BepInEx 5）。进入游戏按 **Insert** 呼出菜单。完整步骤见下方[「Windows 安装详解」](#windows-安装详解bepinex)。
+打开 **PowerShell**，粘贴运行一行即可（自动定位游戏 → 没装 BepInEx 就装上 → 下载最新 DLL；老用户跑这行也会平滑升级）：
+
+```powershell
+irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/win_install.ps1 | iex
+```
+
+进入游戏按 **Insert** 呼出菜单。卸载同理：
+
+```powershell
+irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/win_uninstall.ps1 | iex
+```
+> 也可到右侧 **[Releases](https://github.com/Cohenjikan/ADOFAITrainer/releases)** 手动下载；详细步骤见下方[「Windows 安装详解」](#windows-安装详解bepinex)。
 
 ---
 
