@@ -3,13 +3,13 @@
 
 <div align="center">
 
-<img src="docs/assets/hero.png" alt="冰与火之舞修改器 ADOFAI Trainer — 按 Insert 呼出的游戏内图形修改器，集成 Autoplay、隐藏 HUD、变速、放宽判定、无敌与解锁全部关卡" width="100%">
+<img src="docs/assets/hero.png" alt="冰与火之舞修改器 ADOFAI Trainer — 按 F3 呼出的游戏内图形修改器，集成 Autoplay、隐藏 HUD、变速、放宽判定、无敌与解锁全部关卡" width="100%">
 
 <sub> <a href="docs/assets/promo.mp4">观看 30 秒宣传片</a></sub>
 
 # 冰与火之舞修改器 · ADOFAI Trainer
 
-**按下 Insert，得到一次满分通关——这就是游戏自带的 Autoplay，只是被亮了出来。**
+**按下 F3，得到一次满分通关——这就是游戏自带的 Autoplay，只是被亮了出来。**
 
 一个《冰与火之舞》(A Dance of Fire and Ice) 的 **游戏内图形修改器**，基于 BepInEx 5。集成帧级满分 Autoplay、无 HUD 干净录制、变速、无敌、放宽判定与解锁全部关卡——**只翻动游戏自己已有的开关，不做内存扫描**。
 
@@ -57,7 +57,7 @@ curl -fsSL https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads
 irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/win_install.ps1 | iex
 ```
 
-进入游戏按 **Insert** 呼出菜单。卸载同理：
+进入游戏按 **F3** 呼出菜单。卸载同理：
 
 ```powershell
 irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/win_uninstall.ps1 | iex
@@ -87,7 +87,7 @@ irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/w
 
 ## 功能
 
-按 **Insert** 呼出浮层菜单，三个分页：**普通** / **开发者** / **关于**。
+按 **F3** 呼出浮层菜单，三个分页：**普通** / **开发者** / **关于**。
 
 ### 普通玩家
 
@@ -149,16 +149,16 @@ irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/w
 启动游戏后打开 `游戏目录\BepInEx\LogOutput.log`，看到包含这串文字的一行即成功（前缀与结尾会更长）：
 
 ```text
-ADOFAI Trainer (冰与火之舞修改器) v1.41 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
+ADOFAI Trainer (冰与火之舞修改器) v1.41 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = F3.
 ```
 
-进入任意关卡，按 **Insert** 呼出菜单。
+进入任意关卡，按 **F3** 呼出菜单。
 
 ---
 
 ## 使用
 
-1. 进入任意关卡，按 **Insert** 开 / 关菜单。
+1. 进入任意关卡，按 **F3** 开 / 关菜单。
 2. **录制完美通关**：在「普通」页打开 **Autoplay**（可再开「隐藏 HUD」）→ 进关卡 → 用 OBS 等录屏。
 3. **录被锁住的关卡**：在「开发者」页开「解锁全部关卡」→「前往选关」直接进入。
 4. **变速**：拖动滑块（或点快捷按钮）后，点 **「应用变速并重开本关」** 才生效（引擎不支持中途变速）；点「恢复原速并重开」可还原。

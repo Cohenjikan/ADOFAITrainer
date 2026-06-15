@@ -3,13 +3,13 @@
 
 <div align="center">
 
-<img src="docs/assets/hero.png" alt="ADOFAI Trainer — an in-game GUI trainer for A Dance of Fire and Ice with autoplay, hide-HUD, speed, widened judgement, no-fail and unlock-all, opened with Insert" width="100%">
+<img src="docs/assets/hero.png" alt="ADOFAI Trainer — an in-game GUI trainer for A Dance of Fire and Ice with autoplay, hide-HUD, speed, widened judgement, no-fail and unlock-all, opened with F3" width="100%">
 
 <sub> <a href="docs/assets/promo.mp4">Watch the 30-second promo</a></sub>
 
 # ADOFAI Trainer · 冰与火之舞 修改器
 
-**Press Insert. Get a flawless run. It's the game's own autoplay, just exposed.**
+**Press F3. Get a flawless run. It's the game's own autoplay, just exposed.**
 
 An **in-game GUI trainer** for *A Dance of Fire and Ice*, built on BepInEx 5. Frame-perfect autoplay, HUD-free recording, speed control, no-fail, widened judgement, and level unlock — **by toggling the game's own switches, with no memory hacking**.
 
@@ -57,7 +57,7 @@ Open **PowerShell** and paste one line (auto-locates the game → installs BepIn
 irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/win_install.ps1 | iex
 ```
 
-Press **Insert** in-game. Uninstall the same way:
+Press **F3** in-game. Uninstall the same way:
 
 ```powershell
 irm https://raw.githubusercontent.com/Cohenjikan/ADOFAITrainer/refs/heads/main/win_uninstall.ps1 | iex
@@ -87,7 +87,7 @@ It's fundamentally different from a memory-scanning cheat:
 
 ## Features
 
-Press **Insert** to open the overlay. Three tabs: **Normal** / **Developer** / **About**.
+Press **F3** to open the overlay. Three tabs: **Normal** / **Developer** / **About**.
 
 ### Normal
 
@@ -149,16 +149,16 @@ The project's **only Harmony patch**. Manual play scores Perfect even when sligh
 After launching, open `<game>\BepInEx\LogOutput.log` and look for a line containing (the full line has a longer prefix and a trailing `Switches: ...` list):
 
 ```text
-ADOFAI Trainer (冰与火之舞修改器) v1.41 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = Insert.
+ADOFAI Trainer (冰与火之舞修改器) v1.41 · 免费开源 FREE · github.com/Cohenjikan/ADOFAITrainer · loaded. Menu key = F3.
 ```
 
-Enter any level and press **Insert** to open the menu.
+Enter any level and press **F3** to open the menu.
 
 ---
 
 ## Usage
 
-1. In any level, press **Insert** to open/close the menu.
+1. In any level, press **F3** to open/close the menu.
 2. **Record a flawless run:** enable **Autoplay** on the *Normal* tab (optionally **Hide HUD**) → enter a level → capture with OBS, etc.
 3. **Record a locked level:** on the *Developer* tab enable **Unlock all levels** → **Go to level select** and enter it.
 4. **Speed:** after moving the slider (or hitting a preset), click **Apply speed & restart level** to apply it (the engine can't change speed mid-song); use **Reset speed & restart** to revert.

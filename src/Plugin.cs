@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ADOFAITrainer
 {
-    // In-game trainer for A Dance of Fire and Ice (冰与火之舞). Insert opens an overlay.
+    // In-game trainer for A Dance of Fire and Ice (冰与火之舞). F3 opens an overlay.
     // Same philosophy as the Rhythm Doctor trainer (both 7th Beat Games, shared engine):
     // only flip switches the game itself already has (RDC / GCS / scrController / Persistence)
     // via BepInEx + HarmonyX — no memory scanning, so it stays stable across updates.
@@ -41,7 +41,7 @@ namespace ADOFAITrainer
         private void Awake()
         {
             Log = Logger;
-            _menuKey = Config.Bind("General", "MenuKey", new KeyboardShortcut(KeyCode.Insert),
+            _menuKey = Config.Bind("General", "MenuKey", new KeyboardShortcut(KeyCode.F3),
                 "Hotkey to open/close the trainer overlay.");
 
             // Integrity / anti-resale gate. The cheat engine only runs while the project URL is

@@ -4,7 +4,7 @@
 
 ## 这是什么
 
-**冰与火之舞修改器 (ADOFAI Trainer)** 是一个为单机节奏游戏《A Dance of Fire and Ice》制作的游戏内修改器（trainer）。它以一个 BepInEx 插件的形式运行，在游戏里叠加一个图形菜单（按 `Insert` 呼出），把游戏里原本隐藏的能力暴露成可一键开关的选项。
+**冰与火之舞修改器 (ADOFAI Trainer)** 是一个为单机节奏游戏《A Dance of Fire and Ice》制作的游戏内修改器（trainer）。它以一个 BepInEx 插件的形式运行，在游戏里叠加一个图形菜单（按 `F3` 呼出），把游戏里原本隐藏的能力暴露成可一键开关的选项。
 
 ## 为什么
 
